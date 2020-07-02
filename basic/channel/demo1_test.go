@@ -1,10 +1,15 @@
-package main
+package channel
 
-func main() {
+import (
+	"fmt"
+	"testing"
+)
+
+func Test_Demo(t *testing.T) {
 	done := make(chan struct{})
 	defer close(done)
-
-	in := gen(done, 2, 3)
+	fmt.Println("测试实现")
+	//in := gen(done, 2, 3)
 }
 
 func gen(number ...int) <-chan int {
