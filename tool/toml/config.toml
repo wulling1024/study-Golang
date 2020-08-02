@@ -1,0 +1,22 @@
+# 变量
+product= "shopee"
+
+# 数组
+tel = [110, 119, 120]
+
+# 表
+[user]
+    name = "wulling"
+    age = 25
+
+# 表数组
+[[info]]
+    [info.runajian]
+        name = "123"
+    [info.tumu]
+        name = "aaa"
+[[info]]
+    [info.apple]
+        age = 35
+    [info.huawei]
+        age = 20
