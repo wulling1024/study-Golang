@@ -18,13 +18,13 @@ func Test_Group(t *testing.T){
 		fmt.Println("db connect fail")
 	}
 	defer db.Close()
-	startTime := time.Now().Unix()
+	startTime := time.Date(time.Now().Year(), time.Now().Month(), time.Now().Day(), 3, 0, 0, 0, time.Local).Unix()
 	fmt.Printf("startTime is %v \n", startTime)
 	endTime := startTime - 3600*24
 	fmt.Printf("endTime is %v \n", endTime)
 	var records []StatusClear
-	if err := db.Table("account_book_tab").Select("`status`, count(`status`) as sum").Where("update_time between ? and ?", endTime, startTime).Group("`status`").Scan(&records).Error; err != nil {
-		fmt.Println(err)
+	if err := db.Table("account_book_tab").Select("`status`, count(`status`) as sum").Where("pre_settle_time = ?", startTime).Group("`status`").Scan(&records).Error; err != nil {
+
 	}
 	fmt.Printf("len : %v \n", len(records))
 	for _, record := range records{

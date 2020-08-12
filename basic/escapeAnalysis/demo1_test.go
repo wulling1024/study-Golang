@@ -20,7 +20,7 @@ func patent2() *data {
 	fmt.Printf("patent2: %p \n", &p)
 	return &p
 }
-func Test_Demo(t *testing.T){
+func Test_Main(t *testing.T){
 	p1 := patent1()
 	fmt.Printf("main: %p \n", &p1)
 	p2 := patent2()
