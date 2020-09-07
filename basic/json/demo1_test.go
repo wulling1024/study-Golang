@@ -1,9 +1,11 @@
 package json
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
-func Test_byte(t *testing.T){
+func Test_byte(t *testing.T) {
 	str := `{"name": "wullling", "age": 23}`
-
-
+	fmt.Println(str)
 }

@@ -1,4 +1,4 @@
-module study-Golang
+module github.com/wulling1024/study-Golang
 
 go 1.14
 
