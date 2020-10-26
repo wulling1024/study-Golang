@@ -1,4 +1,4 @@
-package YouDaoYun
+package main
 
 import (
 	"fmt"
