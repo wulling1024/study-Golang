@@ -1,11 +1,10 @@
-package channel
+package main
 
 import (
 	"fmt"
-	"testing"
 )
 
-func Test_Demo(t *testing.T) {
+func main() {
 	done := make(chan struct{})
 	defer close(done)
 	fmt.Println("测试实现")
