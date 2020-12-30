@@ -1,6 +1,6 @@
 module github.com/wulling1024/study-Golang
 
-go 1.14
+go 1.12
 
 require (
 	github.com/BurntSushi/toml v0.3.1
