@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func Test_main(t *testing.T){
+func Test_20210205_1(t *testing.T){
 	fmt.Println("Testing GPG")
 }
