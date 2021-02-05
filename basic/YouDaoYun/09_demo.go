@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	fmt.Println("Start....")
 	test02()
 }
 
@@ -18,7 +19,7 @@ func test01() {
 Exit:
 	for {
 		select {
-		case e, ok := <- ch:
+		case e, ok := <-ch:
 			if ok {
 				fmt.Sprintf("input: %d", e)
 				break Exit
@@ -35,7 +36,7 @@ func test02() {
 	done := make(chan struct{})
 	defer close(done)
 
-	in := gen( 2, 3)
+	in := gen(2, 3)
 
 	// 发布sq的工作到两个都从in里读取数据的Goroutine
 	c1 := sq(in)
@@ -52,7 +53,7 @@ func sq(in <-chan int) <-chan int {
 	out := make(chan int)
 	go func() {
 		for n := range in {
-			out <- n*n
+			out <- n * n
 		}
 		close(out)
 	}()
@@ -80,14 +81,13 @@ func mission(in <-chan int) <-chan int {
 		for n := range in {
 			select {
 			case out <- n * n:
-			//case <- done:
+				//case <- done:
 				return
 			}
 		}
 	}()
 	return out
 }
-
 
 func merge(cs ...<-chan int) <-chan int {
 	var wg sync.WaitGroup
@@ -99,7 +99,7 @@ func merge(cs ...<-chan int) <-chan int {
 		for n := range cs {
 			select {
 			case out <- n:
-			//case <- done:
+				//case <- done:
 			}
 		}
 		wg.Done()
