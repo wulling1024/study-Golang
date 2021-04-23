@@ -2,34 +2,34 @@ package toml
 
 import (
 	"fmt"
-	"github.com/BurntSushi/toml"
 	"path/filepath"
 	"sync"
+
+	"github.com/BurntSushi/toml"
 )
 
 var (
-	cfg  *tomlConfig
-	once sync.Once
+	cfg     *tomlConfig
+	once    sync.Once
 	cfgLock sync.Mutex
 )
 
-func Config() *tomlConfig{
-	once.Do(func(){
+func Config() *tomlConfig {
+	once.Do(func() {
 		filePath, err := filepath.Abs("config.toml")
 		if err != nil {
 			panic(err)
 		}
 		fmt.Printf("parse toml file once. filePath: %s\n", filePath)
-		if _ , err := toml.DecodeFile(filePath, &cfg); err != nil {
+		if _, err := toml.DecodeFile(filePath, &cfg); err != nil {
 			panic(err)
 		}
 	})
 	return cfg
 }
 
-
 // 热更新配置信息
-func config2() *tomlConfig{
+func config2() *tomlConfig {
 	once.Do(ReloadConfig)
 	cfgLock.Lock()
 	defer cfgLock.Unlock()
@@ -43,12 +43,10 @@ func ReloadConfig() {
 	}
 	fmt.Printf("parse toml file once. filePath: %s\n", filePath)
 	config := new(tomlConfig)
-	if _ , err := toml.DecodeFile(filePath, config); err != nil {
+	if _, err := toml.DecodeFile(filePath, config); err != nil {
 		panic(err)
 	}
 	cfgLock.Lock()
 	defer cfgLock.Unlock()
 	cfg = config
 }
-
-
