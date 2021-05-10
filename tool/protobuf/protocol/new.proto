@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto.demo;
+
+import "new2.proto";
+import public "new3.proto";
+
+message UserInfo {
+  new2.NameType name = 1;
+  new3.AgeType age = 2;
+}
