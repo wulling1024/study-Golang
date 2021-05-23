@@ -1,4 +1,4 @@
-package main
+package blog
 
 import (
 	"encoding/json"
@@ -26,5 +26,3 @@ func Test_20201018_1(t *testing.T) {
 	json.Unmarshal([]byte(jsonStr2), &a)
 	fmt.Println(aa)
 }
-
-
