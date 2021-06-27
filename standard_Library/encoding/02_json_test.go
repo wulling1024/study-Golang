@@ -1,4 +1,4 @@
-package strings
+package encoding
 
 import (
 	"encoding/json"
@@ -7,17 +7,23 @@ import (
 	"time"
 )
 
-type Name struct{
+type Name struct {
 	Name *string `json:"name"`
-	Age  int	`json:"age"`
+	Age  int     `json:"age"`
 }
+
 // 结构体定义
 type robot struct {
 	Name   string `json:"name"`
 	Amount int    `json:"amount"`
 }
 
-func Test_PointerOfString(t *testing.T){
+func TestJSON(t *testing.T) {
+
+}
+
+// 解析指针类型
+func Test_PointerOfString(t *testing.T) {
 	str := "{\"name\":\"0xc00005c5c0\", \"age\":23}"
 	var info Name
 	if err := json.Unmarshal([]byte(str), &info); err != nil {
@@ -26,7 +32,6 @@ func Test_PointerOfString(t *testing.T){
 	fmt.Println(info)
 	fmt.Println(time.Now().Unix())
 }
-
 
 // 解析到结构体数组
 func Test_parse_array(t *testing.T) {
@@ -41,6 +46,7 @@ func Test_parse_array(t *testing.T) {
 		fmt.Printf("name=%v, amount=%v\n", one.Name, one.Amount)
 	}
 }
+
 // 解析到结构体指针的数组
 func Test_parse_pointer_array(t *testing.T) {
 	fmt.Println("解析json字符串为结构体指针的数组")

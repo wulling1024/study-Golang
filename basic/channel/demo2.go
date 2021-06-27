@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 // 这一个利用接口来实现的排序算法
 // 排序中主要就是三个函数：Len()、Less()、Sort()
 
@@ -40,11 +36,11 @@ func sort(data Sorter) {
 	}
 }
 
-func main() {
-	arr := []int{74, 59, 238, -784, 9845, 959, 905, 0, 0, 42, 7586, -5467984, 7586}
-	param := IntArray(arr)
-
-	sort(param)
-
-	fmt.Printf("The sorted array is %v\n", param)
-}
+//func main() {
+//	arr := []int{74, 59, 238, -784, 9845, 959, 905, 0, 0, 42, 7586, -5467984, 7586}
+//	param := IntArray(arr)
+//
+//	sort(param)
+//
+//	fmt.Printf("The sorted array is %v\n", param)
+//}

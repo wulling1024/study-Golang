@@ -1,4 +1,4 @@
-package json
+package encoding
 
 import (
 	"encoding/json"
@@ -14,7 +14,7 @@ type Website struct {
 }
 
 // 以Json格式，写信息到文件中
-func Test_decoder(t *testing.T) {
+func Test_Encoder(t *testing.T) {
 	// 内容信息
 	info := []Website{
 		{"Golang",
@@ -28,7 +28,7 @@ func Test_decoder(t *testing.T) {
 	}
 
 	// 创建文件
-	file, err := os.Create("./basic/file/json/info.json")
+	file, err := os.Create("info.json")
 	if err != nil {
 		fmt.Println("文件创建失败", err.Error())
 		return
@@ -45,4 +45,29 @@ func Test_decoder(t *testing.T) {
 	} else {
 		fmt.Println("编码成功")
 	}
+}
+
+func Test_Decoder(t *testing.T) {
+	file, err := os.Open("./info.json")
+	if err != nil {
+		fmt.Println("文件打开失败", err.Error())
+		return
+	}
+	defer file.Close()
+
+	var info []Website
+
+	// Json解码器
+	newDecoder := json.NewDecoder(file)
+	err = newDecoder.Decode(&info)
+	if err != nil {
+		fmt.Println("解码失败", err.Error())
+	} else {
+		fmt.Println("解码成功")
+		fmt.Println(info)
+	}
+}
+
+func TestJSONFile(t *testing.T) {
+
 }

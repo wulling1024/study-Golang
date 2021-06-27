@@ -1,4 +1,4 @@
-package file
+package blog
 
 import (
 	"bufio"
@@ -10,9 +10,9 @@ import (
 
 /**
 文件读取的方式选择
- */
+*/
 
-func Test_Main(t *testing.T){
+func Test_Main(t *testing.T) {
 
 }
 
@@ -28,11 +28,11 @@ func readByOS(path string) int {
 
 	for {
 		n, err := file.Read(buf)
-		if err != nil && err != io.EOF{
+		if err != nil && err != io.EOF {
 			panic(err)
 		}
 
-		if n == 0{
+		if n == 0 {
 			break
 		}
 		nbytes += n
@@ -57,7 +57,7 @@ func readByBufio(path string) int {
 			panic(err)
 		}
 
-		if n == 0{
+		if n == 0 {
 			break
 		}
 		nbytes += n
@@ -76,4 +76,3 @@ func readByIoutil(path string) int {
 	nbytes := len(bytes)
 	return nbytes
 }
-

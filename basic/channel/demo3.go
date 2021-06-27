@@ -30,6 +30,6 @@ func Write(ch chan<- int) chan<- int {
 	return ch
 }
 
-func main() {
-
-}
+//func main() {
+//
+//}
