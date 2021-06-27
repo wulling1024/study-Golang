@@ -1,0 +1,6 @@
+[submodule "openSource/github.com:overnote/over-golang"]
+	path = openSource/github.com:overnote/over-golang
+	url = git@github.com:overnote/over-golang.git
+[submodule "openSource/github.com:gopl-zh/gopl-zh"]
+	path = openSource/github.com:gopl-zh/gopl-zh
+	url = git@github.com:gopl-zh/gopl-zh.github.com.git
